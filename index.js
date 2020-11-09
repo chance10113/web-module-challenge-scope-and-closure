@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  [Counter one keeps it's count variable within scope, counter two has it on the outside]
   2. Which of the two uses a closure? How can you tell?
-  
+  [Counter one uses a closure, due to it having nested function]
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     [Counter one is more self-contained, which makes it more robust, whereas counter 2 can share the count element with other functions]
 */
 
 // counter1 code
@@ -61,12 +62,17 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  
+  return Math.floor(Math.random() * Math.floor(2));
+  
 }
 
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+//Fix above, only returns zer0
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 

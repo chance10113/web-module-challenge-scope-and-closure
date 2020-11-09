@@ -130,7 +130,6 @@ function getInningScore(inning) {
     Away: inning()
   }
 }
-console.log('getInningScore(inning): ', getInningScore(inning));
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -143,8 +142,8 @@ Use the scoreboard function below to do the following:
      If there is no tie, add this message to the end of the array: 
      "Final Score: Away 13 - Home 11"  (see no tie example below)
   HINT: `getInningScore` should be invoked by `scoreboard` and use `inning` to get and return the scores back to `scoreboard`
-  
-  For example: If there is no tie, invoking scoreboard(getInningScore,inning, 9) might return 
+  */
+  /*  For example: If there is no tie, invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
 [
   "Inning 1: Away 1 - Home 2", 
@@ -175,13 +174,36 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inningCB, innNum) {
+  const boardScores = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  
+  for(let i = 1; i <= innNum; i++){
+    const currentScore =  inningCB(innNum);  
+    homeScore = homeScore + currentScore
+    awayScore = awayScore + currentScore
+    boardScores.push(`Inning ${i}: Away ${getInningScore.Away} - Home ${getInningScore.Home}`)
+    
+  }return boardScores
 }
 
 
+console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
 
-
+//function totalGameScore(scoreCB, gameCB){
+  //   const totalGame = [];
+  //   let homeScore = 0;
+  //   let awayScore = 0;
+    
+  //   for(let i=0; i <3; i++){
+  //   const currentScore= gameCB(scoreCB)  
+  //     homeScore = homeScore + currentScore.Home
+  //     awayScore = awayScore+ currentScore.Away
+  //     totalGame.push(`Period ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+  //   }
+  //   return totalGame
+  // }
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
   console.log('its working');

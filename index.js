@@ -68,11 +68,6 @@ function inning(){
   
 }
 
-console.log(inning());
-console.log(inning());
-console.log(inning());
-console.log(inning());
-//Fix above, only returns zer0
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
@@ -85,21 +80,57 @@ For example: invoking finalScore(inning, 9) might return this object:
   "Away": 5
 }
 */ 
+// function hockeyGame(scoreCB){
+//   return  {
+//    Home: scoreCB(),
+//    Away: scoreCB()
+//  }
+// }
 
-function finalScore(/*code Here*/){
+// function totalGameScore(scoreCB, gameCB){
+//   const totalGame = [];
+//   let homeScore = 0;
+//   let awayScore = 0;
+  
+//   for(let i=0; i <3; i++){
+//   const currentScore= gameCB(scoreCB)  
+//     homeScore = homeScore + currentScore.Home
+//     awayScore = awayScore+ currentScore.Away
+//     totalGame.push(`Period ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+//   }
+//   return totalGame
+// }
 
-  /*Code Here*/
+function finalScore(inningCB, inningNum){
+  let homeScore = 0;
+  let awayScore = 0;
+  
+  for(let i=0; i <=inningNum; i++){
+    const currentScore =  inningCB(inningNum);  
+    homeScore = homeScore + currentScore
+    awayScore = awayScore + currentScore
+   
+    
+  }return {
+    Home: homeScore,
+    Away: awayScore,
+  }
 
 }
+
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return {
+    Home: inning(),
+    Away: inning()
+  }
 }
+console.log('getInningScore(inning): ', getInningScore(inning));
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`

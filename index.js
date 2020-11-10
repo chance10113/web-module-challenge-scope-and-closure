@@ -130,6 +130,8 @@ function getInningScore(inning) {
     Away: inning()
   }
 }
+
+console.log('getInningScore(inning): ', getInningScore(inning));
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -180,15 +182,24 @@ function scoreboard(getInningScore, inningCB, innNum) {
   let awayScore = 0;
   
   for(let i = 1; i <= innNum; i++){
-    const currentScore =  inningCB(innNum);  
-    homeScore = homeScore + currentScore
-    awayScore = awayScore + currentScore
-    boardScores.push(`Inning ${i}: Away ${getInningScore.Away} - Home ${getInningScore.Home}`)
+    const currentScore =  getInningScore(inningCB);  
+    homeScore = homeScore + currentScore.Home
+    awayScore = awayScore + currentScore.Away
+    boardScores.push(`Inning ${i}: Away ${awayScore} - Home ${homeScore}`)
     
-  }return boardScores
+  } if(awayScore === homeScore){
+    boardScores.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+  } else{
+    boardScores.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+  }
+  return boardScores
 }
 
 
+console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
+console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
+console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
+console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
 console.log('scoreboard(getInningScore, inningCB, innNum): ', scoreboard(getInningScore, inning, 9));
 
 //function totalGameScore(scoreCB, gameCB){

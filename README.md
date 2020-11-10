@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+[Closure is how private variables can exist in functions. It allows functions within functions, where the nested ones can have access to parent functions, but not the other way around.]
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+[Closure is used in the return function, where it is holding the important bits of the parent function]
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The first time it identifies the variable exists, then it assigns a value
 c. What is the lexical scope of `newRoll`? 
+nested
 
 ### Task 2c - Exit Ticket
 
